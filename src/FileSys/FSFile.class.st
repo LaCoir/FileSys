@@ -20,5 +20,5 @@ contents:= aString
 
 { #category : 'accessing' }
 FSFile >> searchByName: aString [
-	^(self name = aString) ifTrue:[self] ifFalse: [ nil ]
+	^(self name = aString) ifTrue:[ self] ifFalse: [ nil ].
 ]

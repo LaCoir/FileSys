@@ -10,7 +10,7 @@ Class {
 
 { #category : 'adding' }
 FSDirectory >> addEntry: anEntry [
-	child addEntry: anEntry 
+	child add: anEntry
 ]
 
 { #category : 'accessing' }
@@ -29,9 +29,9 @@ FSDirectory >> searchByName: aString [
 |result|
 result:= OrderedCollection new.
 
-(self name = aString) ifTrue: [ result addEntry: self ].
+(self name = aString) ifTrue: [ result add: self ].
 
-child do: [ :each |result addAll: (each searchByName: aString)].
+child do: [ :each | (each searchByName: aString) ifNotNil: [ :result | ^result ]].
 
 ^result
 ]
