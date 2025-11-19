@@ -2,11 +2,17 @@ Class {
 	#name : 'FSEntry',
 	#superclass : 'Object',
 	#instVars : [
-		'name'
+		'name',
+		'parent'
 	],
 	#category : 'FileSys',
 	#package : 'FileSys'
 }
+
+{ #category : 'accessing' }
+FSEntry >> match: aVariable in: aString [
+ ^aVariable beginsWith: aString
+]
 
 { #category : 'accessing' }
 FSEntry >> name [

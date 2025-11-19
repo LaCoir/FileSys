@@ -9,8 +9,8 @@ Class {
 }
 
 { #category : 'adding' }
-FSDirectory >> addEntry: anEntry [
-	child add: anEntry
+FSDirectory >> addEntry: aFSEntry [
+	child add: aFSEntry.
 ]
 
 { #category : 'accessing' }
@@ -22,6 +22,15 @@ FSDirectory >> child [
 FSDirectory >> initialize [ 
 	 super initialize.
     child := OrderedCollection new.
+]
+
+{ #category : 'accessing' }
+FSDirectory >> searchByContents: aString [
+
+child do: [ :child | 
+		|result| 
+		result :=  child searchByContents: aString.
+		result ifNotNil: [ ^result ] ]
 ]
 
 { #category : 'accessing' }
